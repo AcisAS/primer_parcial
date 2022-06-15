@@ -22,16 +22,17 @@ Route::get('/', function () {
 Route::prefix('profesores')->group(function () {
 
     Route::controller(ProfesorController::class)->group(function () {
-        Route::get('/consulta', 'obtenerProfesores')->name('consulta_general_profesores');
+        Route::get('/', 'obtenerProfesores')->name('consulta_general_profesores');
         Route::get('/consultarsusunidades', 'obtenerUnidadesProfesor');
-        Route::post('/registro', 'registrarProfesor');
+        Route::post('/registro', 'registrarProfesor')->name('registrarProfesor');
+        Route::post('/eliminar', 'eliminarProfesor')->name('eliminarProfesor');
     });
 });
 
 Route::prefix('unidades')->group(function () {
 
     Route::controller(UnidadAprendizajeController::class)->group(function () {
-        Route::get('/consulta', 'obtenerUnidadesAprendizaje')->name('consulta_general_unidades');
-        Route::post('/registro', 'registrarUnidadesAprendizaje');
+        Route::get('/', 'obtenerUnidadesAprendizaje')->name('consulta_general_unidades');
+        Route::post('/registro', 'registrarUnidadesAprendizaje')->name('registrarUnidad');
     });
 });

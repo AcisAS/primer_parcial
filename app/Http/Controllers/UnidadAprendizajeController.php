@@ -16,7 +16,15 @@ class UnidadAprendizajeController extends Controller
         return view('tabla.unidades', compact('unidades'));
     }
 
-    public function registrarUnidadesAprendizaje()
+    public function registrarUnidadesAprendizaje(Request $req)
     {
+        UnidadAprendizaje::create([
+            'idUnidadAprendizaje' => $req->id,
+            'nombre' => $req->nombre,
+            'horas_clase' => $req->hclase,
+            'horas_taller' => $req->htaller,
+            'horas_laboratorio' => $req->hlaboratorio
+        ]);
+        return redirect()->route('consulta_general_profesores');
     }
 }

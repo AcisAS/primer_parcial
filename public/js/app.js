@@ -2167,6 +2167,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _bootstrap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 
+window.cancelar = function () {
+  document.getElementById("modal-contenido").reset();
+  document.getElementById("modal").style.display = "none";
+};
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":

@@ -12,7 +12,7 @@ class ProfesorController extends Controller
     {
         $profesores = Profesor::all();
 
-        return view('tabla.profesores',compact('profesores'));
+        return view('tabla.profesores', compact('profesores'));
     }
 
     public function obtenerUnidadesProfesor(Request $req)
@@ -27,9 +27,16 @@ class ProfesorController extends Controller
     {
         Profesor::create([
             'idProfesor' => $req->id,
-            'nombre' => $req->id,
-            'apellido' => $req->id,
-            'rfc' => $req->id,
+            'nombre' => $req->nombre,
+            'apellido' => $req->apellido,
+            'rfc' => $req->rfc,
         ]);
+        return redirect()->route('consulta_general_profesores');
+    }
+
+    public function eliminarProfesor(Request $req)
+    {
+        Profesor::where('idProfesor', $req->id)->delete();
+        return redirect()->route('consulta_general_profesores');
     }
 }

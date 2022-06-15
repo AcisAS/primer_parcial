@@ -8,6 +8,10 @@ td {
     border-collapse: collapse;
 }
 
+table {
+    width: 100%;
+}
+
 th {
     padding: 6px;
     background-color: rgba(10, 12, 90, 0.87);
@@ -15,7 +19,7 @@ th {
 }
 
 td {
-    padding: 6px;
+    font-weight: bold;
     text-align: center;
 }
 
@@ -33,10 +37,13 @@ tr:nth-child(even) {
     font-size: 24px;
 }
 
-.btn-eliminar {
+.btn-eliminar,
+.btn-cancelar {
     background-color: rgb(184, 13, 13);
 }
-.btn-eliminar i {
+
+.btn-eliminar i,
+.btn-cancelar {
     color: white;
 }
 
@@ -49,4 +56,98 @@ tr:nth-child(even) {
 }
 
 /*  Fin de los estilos para botones de opciones de la tabla profesores*/
+
+/* Estilos del menu*/
+
+.menu {
+    padding: 10px;
+    background-color: rgb(12, 104, 180);
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+.menu h1 {
+    display: inline;
+    color: white;
+    margin-right: 30px;
+}
+
+.menu a {
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 20px 10px;
+}
+.menu a:hover {
+    background-color: rgb(8, 74, 128);
+}
+
+/* Fin stilos del menu*/
+
+/* Estilos de modal */
+
+.modal {
+    display: none;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+}
+.modal article {
+    background-color: white;
+    width: 30%;
+    max-height: 60%;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 25px;
+}
+
+.modal article form div {
+    display: flex;
+    flex-direction: column;
+}
+.modal article form div label {
+    margin-top: 10px;
+}
+
+.modal article form div input {
+    border: none;
+
+    border-bottom: 2px solid rgb(8, 74, 128);
+}
+
+.modal article form .contenedor-botones {
+    display: inline-block;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.modal article form .contenedor-botones input {
+    border: none;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px;
+    margin: 0px 10%;
+}
+.btn-registrar {
+    background-color: green;
+    color: white;
+}
+
+/* Fin de estilos de mdoal */
+/* Estilo de boton de registrar */
+.btn-nuevo-registro {
+    float: right;
+    padding: 10px;
+    font-size: 19px;
+    font-weight: bold;
+    border: none;
+    margin-bottom: 20px;
+}
+
+/* Fin de estilo de boton de registrar */
 

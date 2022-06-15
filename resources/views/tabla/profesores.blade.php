@@ -1,19 +1,36 @@
 @extends('principal')
+@section('registro')
+    <button class="btn-nuevo-registro btn-registrar"
+        onclick="document.getElementById('modal').style.display='block'">Registrar a un nuevo Profesor</button>
+@endsection
+
 @section('contenido')
-    <table>
-        <tr>
-            <th>Profesor</th>
-            <th>RFC</th>
-            <th></th>{{-- encabezado utilizado para la opcion de consulta --}}
-            <th></th>{{-- encabezado utilizado para la opcion de edición --}}
-        </tr>
-        @foreach ($profesores as $profesor)
+    <section>
+        <table>
             <tr>
-                <td>{{ $profesor->nombre . ' ' . $profesor->apellido }}</td>
-                <td>{{ $profesor->rfc }}</td>
-                <td><button class="btn btn-eliminar"><i class="fa fa-trash"></i></button></td>
-                <td><button class="btn btn-consultar"><i class="fa fa-search"></i></button></td>
+                <th>Profesor</th>
+                <th>RFC</th>
+                <th></th>{{-- encabezado utilizado para la opcion de consulta --}}
+                <th></th>{{-- encabezado utilizado para la opcion de edición --}}
             </tr>
-        @endforeach
-    </table>
+            @foreach ($profesores as $profesor)
+                <tr>
+                    <td>{{ $profesor->nombre . ' ' . $profesor->apellido }}</td>
+                    <td>{{ $profesor->rfc }}</td>
+
+                    <td>
+                        <form action="{{ route('eliminarProfesor') }}" method="POST">
+                            @csrf
+                            <input type="numer" name="id" hidden value="{{ $profesor->idProfesor }}">
+                            <button class="btn btn-eliminar"><i class="fa fa-trash"></i></button>
+                        </form>
+                    </td>
+                    <td><button class="btn btn-consultar"><i class="fa fa-search"></i></button></td>
+                </tr>
+            @endforeach
+        </table>
+    </section>
+@endsection
+@section('modal')
+    @include('modal.registroprofesor')
 @endsection
