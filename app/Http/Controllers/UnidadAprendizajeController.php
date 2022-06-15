@@ -16,6 +16,21 @@ class UnidadAprendizajeController extends Controller
         return view('tabla.unidades', compact('unidades'));
     }
 
+
+    public function obtenerUnidades()
+    {
+        $unidades = UnidadAprendizaje::all();
+
+        $respuesta = array();
+
+        foreach ($unidades as $unidad) {
+            $respuesta[] = array("id" => $unidad->idUnidadAprendizaje, "nombre" => $unidad->nombre);
+        }
+
+
+        return response()->json($respuesta);
+    }
+
     public function registrarUnidadesAprendizaje(Request $req)
     {
         UnidadAprendizaje::create([
@@ -25,6 +40,14 @@ class UnidadAprendizajeController extends Controller
             'horas_taller' => $req->htaller,
             'horas_laboratorio' => $req->hlaboratorio
         ]);
-        return redirect()->route('consulta_general_profesores');
+        return redirect()->route('consulta_general_unidades');
+    }
+
+
+    public function eliminarUnidadesAprendizaje(Request $req)
+    {
+
+        UnidadAprendizaje::where('idUnidadAprendizaje', $req->id)->delete();
+        return redirect()->route('consulta_general_unidades');
     }
 }

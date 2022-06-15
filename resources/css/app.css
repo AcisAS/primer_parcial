@@ -138,7 +138,18 @@ tr:nth-child(even) {
     color: white;
 }
 
-/* Fin de estilos de mdoal */
+#selecUnidades {
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+#selecUnidades div{
+    padding: 10px;
+}
+#selecUnidades #materias input {
+    margin: auto;
+}
+
+/* Fin de estilos de modal */
 /* Estilo de boton de registrar */
 .btn-nuevo-registro {
     float: right;

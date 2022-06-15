@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Profesor;
+use App\Models\UnidadAprendizaje;
 use Illuminate\Http\Request;
 
 class ProfesorController extends Controller
@@ -17,10 +18,10 @@ class ProfesorController extends Controller
 
     public function obtenerUnidadesProfesor(Request $req)
     {
-        $unidadesprofesor = Profesor::find(12)->unidadaprendizaje;
+        $unidadesprofesor = Profesor::find($req->id)->unidadaprendizaje;
+        $profesor = Profesor::where('idProfesor', $req->id)->get();
 
-        return view('tabla.unidadesprofesor', compact('unidadesprofesor'));
-        return $unidadesprofesor;
+        return view('tabla.unidadesprofesor', compact('unidadesprofesor', 'profesor'));
     }
 
     public function registrarProfesor(Request $req)
@@ -31,6 +32,15 @@ class ProfesorController extends Controller
             'apellido' => $req->apellido,
             'rfc' => $req->rfc,
         ]);
+        $profesor = Profesor::find($req->id);
+
+        // Guardar la relacion del profesor con las materias seleccionadas
+        foreach ($req->materia as $materia) {
+            $unidad = UnidadAprendizaje::find($materia);
+
+            $profesor->unidadaprendizaje()->attach($unidad);
+        }
+
         return redirect()->route('consulta_general_profesores');
     }
 
