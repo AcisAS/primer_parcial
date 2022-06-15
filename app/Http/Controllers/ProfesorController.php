@@ -17,11 +17,19 @@ class ProfesorController extends Controller
 
     public function obtenerUnidadesProfesor(Request $req)
     {
-        $unidadesprofesor = Profesor::find(123)->unidadaprendizaje;
+        $unidadesprofesor = Profesor::find(12)->unidadaprendizaje;
+
+        return view('tabla.unidadesprofesor', compact('unidadesprofesor'));
         return $unidadesprofesor;
     }
 
     public function registrarProfesor(Request $req)
     {
+        Profesor::create([
+            'idProfesor' => $req->id,
+            'nombre' => $req->id,
+            'apellido' => $req->id,
+            'rfc' => $req->id,
+        ]);
     }
 }

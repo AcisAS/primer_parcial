@@ -15,6 +15,7 @@ class UnidadAprendizaje extends Model
 
     protected $fillable = [
         'idUnidadAprendizaje',
+        'nombre',
         'horas_clase',
         'horas_taller',
         'horas_laboratorio'

@@ -30,6 +30,5 @@ class Profesor extends Model
         );
     }
 
-
     use HasFactory;
 }
