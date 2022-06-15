@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('principal');
+    return redirect()->route('consulta_general_profesores');
 });
 
 Route::prefix('profesores')->group(function () {
