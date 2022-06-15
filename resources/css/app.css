@@ -1,12 +1,51 @@
+* {
+    font-family: "Optima", sans-serif;
+}
 
-table, th, td {
-    border: 1px solid black;
+table,
+th,
+td {
     border-collapse: collapse;
-  }
-  th{
-    padding: 5px;
-  }
+}
 
-  td{
+th {
+    padding: 6px;
+    background-color: rgba(10, 12, 90, 0.87);
+    color: white;
+}
+
+td {
+    padding: 6px;
     text-align: center;
-  }
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/*  Estilos para botones de opciones de la tabla profesores*/
+.btn {
+    border: none;
+    padding: 10px;
+    border-radius: 25%;
+}
+.btn i {
+    font-size: 24px;
+}
+
+.btn-eliminar {
+    background-color: rgb(184, 13, 13);
+}
+.btn-eliminar i {
+    color: white;
+}
+
+.btn-consultar {
+    background-color: rgb(13, 107, 184);
+}
+
+.btn-consultar i {
+    color: white;
+}
+
+/*  Fin de los estilos para botones de opciones de la tabla profesores*/

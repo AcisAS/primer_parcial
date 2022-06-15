@@ -13,7 +13,7 @@ class UnidadAprendizajeController extends Controller
     {
         $unidades = UnidadAprendizaje::all();
 
-        return $unidades;
+        return view('tabla.unidades', compact('unidades'));
     }
 
     public function registrarUnidadesAprendizaje()

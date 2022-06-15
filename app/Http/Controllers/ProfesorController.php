@@ -12,7 +12,7 @@ class ProfesorController extends Controller
     {
         $profesores = Profesor::all();
 
-        return $profesores;
+        return view('tabla.profesores',compact('profesores'));
     }
 
     public function obtenerUnidadesProfesor(Request $req)

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfesorController;
+use App\Http\Controllers\UnidadAprendizajeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,13 +16,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('principal');
 });
 
 Route::prefix('profesores')->group(function () {
 
     Route::controller(ProfesorController::class)->group(function () {
-        Route::get('/consulta', 'obtenerProfesores');
+        Route::get('/consulta', 'obtenerProfesores')->name('consulta_general_profesores');
         Route::get('/consultarsusunidades', 'obtenerUnidadesProfesor');
         Route::post('/registro', 'registrarProfesor');
     });
@@ -30,7 +31,7 @@ Route::prefix('profesores')->group(function () {
 Route::prefix('unidades')->group(function () {
 
     Route::controller(UnidadAprendizajeController::class)->group(function () {
-        Route::get('/consulta', 'obtenerUnidadesAprendizaje');
+        Route::get('/consulta', 'obtenerUnidadesAprendizaje')->name('consulta_general_unidades');
         Route::post('/registro', 'registrarUnidadesAprendizaje');
     });
 });
